@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SampleMain</string>
+    <string name="news">뉴스</string>
+    <string name="lineview">그리기앱</string>
+    <string name="picture">사진편집</string>
+    <string name="picturePane">그림판</string>
+</resources>
