@@ -1,12 +1,13 @@
 package com.gon.samplemain;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 import com.gon.samplemain.lineview.LineViewActivity;
+import com.gon.samplemain.picture.PictureActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,10 +25,21 @@ public class MainActivity extends AppCompatActivity {
         btnLineview.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LineActivity.class) ;
-
+//                Intent intent = new Intent(MainActivity.this, LineActivity.class) ;
+                Intent intent = new Intent(MainActivity.this, LineViewActivity.class) ;
                 startActivity(intent) ;
             }
+        });
+
+        btnPicture.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,PictureActivity.class);
+                startActivity(intent);
+
+            }
+
+
         });
 
     }
