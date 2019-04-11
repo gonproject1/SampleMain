@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 
 public class MyView extends View {
@@ -18,10 +19,12 @@ public class MyView extends View {
     private int paintColor = 0xFFa68b1f;
     private Canvas drawCanvas;
     private Bitmap canvasBitmap;
+    private Bitmap canImg;
 
-    public MyView(Context context){
+    public MyView(Context context, Bitmap img){
 
         super(context);
+        canImg = img;
         setupDrawing();
     }
 
@@ -40,7 +43,8 @@ public class MyView extends View {
 
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged( w, h, oldw, oldh);
-        canvasBitmap = Bitmap.createBitmap( w, h, Bitmap.Config.ARGB_8888);
+        //canvasBitmap = Bitmap.createBitmap( w, h, Bitmap.Config.ARGB_8888);
+        canvasBitmap = Bitmap.createBitmap(canImg).copy(Bitmap.Config.ARGB_8888,true);
         drawCanvas = new Canvas(canvasBitmap);
     }
 

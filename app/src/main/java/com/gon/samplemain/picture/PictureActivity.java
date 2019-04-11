@@ -9,12 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.gon.samplemain.R;
+import com.gon.samplemain.lineview.MyView;
 
 import java.io.InputStream;
 
 public class PictureActivity extends AppCompatActivity {
     ImageView imageView;
-    Button button;
+    Button gallayButton;    //갤러리오픈
+    Button lineButton;      //편집
+    Bitmap mapimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +26,34 @@ public class PictureActivity extends AppCompatActivity {
 
         imageView = (ImageView)findViewById(R.id.image);
 
-        button = (Button)findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        //갤러리 열기
+        gallayButton = (Button)findViewById(R.id.open);
+        //사진위에 그리는 버튼
+        lineButton = (Button)findViewById(R.id.lineview);
+
+        gallayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, 1);
+            }
+        });
+
+        lineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+
+
+                if(imageView != null){
+
+                    MyView m;
+                    m = new MyView(getApplicationContext(),mapimg);
+                    setContentView(m);
+                }
+
             }
         });
     }
@@ -48,6 +71,8 @@ public class PictureActivity extends AppCompatActivity {
                     in.close();
                     // 이미지 표시
                     imageView.setImageBitmap(img);
+                    //cavas에서 그릴수 있게 변수에 img넣기
+                    mapimg = img;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

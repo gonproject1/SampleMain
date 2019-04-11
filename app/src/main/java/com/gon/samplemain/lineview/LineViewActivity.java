@@ -11,8 +11,8 @@ public class LineViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        m = new MyView(this);
+        //@@ 임시주석
+        //m = new MyView(this);
         setContentView(m);
 
     }

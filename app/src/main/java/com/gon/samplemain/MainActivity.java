@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.gon.samplemain.lineview.LineViewActivity;
+import com.gon.samplemain.photo.PhotoActivity;
 import com.gon.samplemain.picture.PictureActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,5 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnpicturePane.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, PhotoActivity.class);
+                startActivity(intent);
+
+            }
+
+
+        });
     }
 }
